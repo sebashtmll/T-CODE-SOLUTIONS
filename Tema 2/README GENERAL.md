@@ -87,7 +87,7 @@ Cada integrante del equipo grabó un video de **maximo 10 minutos** donde:
 - Expone y justifica conceptualmente una de las actividades.
 - Explica el funcionamiento lógico-sintáctico del código escrito.
 - Responde implicaciones del compilador/intérprete sobre el lenguaje seleccionado.
-
+-Enlace del video: https://youtu.be/qU_UiE1TpaE 
 
 
 

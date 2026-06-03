@@ -26,7 +26,7 @@ El experimento consiste en resolver de forma vectorial una ecuación de segundo 
 
 ## Video de la Exposición
 Puedes ver la defensa del proyecto, el análisis de la sintaxis y la explicación de los resultados en el siguiente enlace de YouTube:
-[**Ver video de la exposición en YouTube**]
+https://youtu.be/qU_UiE1TpaE aquí está el video
 
 ---
 

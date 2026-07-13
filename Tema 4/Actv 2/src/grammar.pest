@@ -1,0 +1,34 @@
+// --- Reglas de Lenguaje (Lexer) ---
+
+// Definición de palabras clave
+fn_kw    = { "fn" }
+let_kw   = { "let" }
+if_kw    = { "if" }
+while_kw = { "while" }
+
+// Identificadores y literales
+identificador = @{ (ASCII_ALPHA | "_") ~ (ASCII_ALPHANUMERIC | "_")* }
+entero        = @{ ASCII_DIGIT+ }
+
+// Operadores
+suma   = { "+" }
+resta  = { "-" }
+igual  = { "=" }
+comparar = { "==" }
+
+// Ignorar espacios en blanco y comentarios
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+COMENTARIO = _{ "//" ~ (!"\n" ~ ANY)* }
+
+// --- Reglas de Sintaxis (Parser) ---
+
+// Un programa es una secuencia de declaraciones o funciones
+programa = { SOI ~ (funcion)* ~ EOI }
+
+funcion = { fn_kw ~ identificador ~ "()" ~ "{" ~ declaracion* ~ "}" }
+
+declaracion = { let_kw ~ identificador ~ igual ~ expresion ~ ";" }
+
+expresion = { termino ~ (operador ~ termino)* }
+termino   = _{ entero | identificador }
+operador  = _{ suma | resta | comparar }

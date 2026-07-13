@@ -6,7 +6,7 @@ Este repositorio contiene la implementación de un analizador léxico (lexer) di
 
 Para compilar y ejecutar este lexer, necesitas tener instalados `flex` y `gcc` en tu entorno (preferiblemente Linux/Debian/Ubuntu).
 
-Abre tu terminal y ejecuta el siguiente comando para instalar las dependencias:
+Abre la terminal y ejecuta el siguiente comando para instalar las dependencias:
 
 ```bash
 sudo apt-get update

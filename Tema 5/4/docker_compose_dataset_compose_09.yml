@@ -1,0 +1,12 @@
+services:
+  app:
+    image: my-app
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+    depends_on:
+      - db
+  db:
+    image: postgres

@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: redis:alpine
+  worker:
+    image: worker:v1
+    env_file:
+      - .env

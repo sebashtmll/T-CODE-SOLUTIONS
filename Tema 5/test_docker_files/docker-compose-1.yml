@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app-1:
+    image: nginx:latest
+    networks:
+      net-uneg-1:
+        ipv4_address: 192.168.1.11
+  app-2:
+    image: nginx:latest
+    networks:
+      net-uneg-2:
+        ipv4_address: 192.168.1.12
+networks:
+  net-uneg-1:
+    driver: bridge
+  net-uneg-2:
+    driver: bridge

@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  proxy:
+    image: haproxy
+    ports:
+      - "80:80"
+  app:
+    image: backend
+    environment:
+      DEBUG: 'true'
+    networks:
+      - internal
+networks:
+  internal:

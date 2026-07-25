@@ -1,0 +1,143 @@
+version: '3.8'
+services:
+  app-1:
+    image: nginx:latest
+    networks:
+      net-uneg-1:
+        ipv4_address: 192.168.1.11
+  app-2:
+    image: nginx:latest
+    networks:
+      net-uneg-2:
+        ipv4_address: 192.168.1.12
+  app-3:
+    image: nginx:latest
+    networks:
+      net-uneg-3:
+        ipv4_address: 192.168.1.13
+  app-4:
+    image: nginx:latest
+    networks:
+      net-uneg-4:
+        ipv4_address: 192.168.1.14
+  app-5:
+    image: nginx:latest
+    networks:
+      net-uneg-5:
+        ipv4_address: 192.168.1.15
+  app-6:
+    image: nginx:latest
+    networks:
+      net-uneg-6:
+        ipv4_address: 192.168.1.16
+  app-7:
+    image: nginx:latest
+    networks:
+      net-uneg-7:
+        ipv4_address: 192.168.1.17
+  app-8:
+    image: nginx:latest
+    networks:
+      net-uneg-8:
+        ipv4_address: 192.168.1.18
+  app-9:
+    image: nginx:latest
+    networks:
+      net-uneg-9:
+        ipv4_address: 192.168.1.19
+  app-10:
+    image: nginx:latest
+    networks:
+      net-uneg-10:
+        ipv4_address: 192.168.1.20
+  app-11:
+    image: nginx:latest
+    networks:
+      net-uneg-11:
+        ipv4_address: 192.168.1.21
+  app-12:
+    image: nginx:latest
+    networks:
+      net-uneg-12:
+        ipv4_address: 192.168.1.22
+  app-13:
+    image: nginx:latest
+    networks:
+      net-uneg-13:
+        ipv4_address: 192.168.1.23
+  app-14:
+    image: nginx:latest
+    networks:
+      net-uneg-14:
+        ipv4_address: 192.168.1.24
+  app-15:
+    image: nginx:latest
+    networks:
+      net-uneg-15:
+        ipv4_address: 192.168.1.25
+  app-16:
+    image: nginx:latest
+    networks:
+      net-uneg-16:
+        ipv4_address: 192.168.1.26
+  app-17:
+    image: nginx:latest
+    networks:
+      net-uneg-17:
+        ipv4_address: 192.168.1.27
+  app-18:
+    image: nginx:latest
+    networks:
+      net-uneg-18:
+        ipv4_address: 192.168.1.28
+  app-19:
+    image: nginx:latest
+    networks:
+      net-uneg-19:
+        ipv4_address: 192.168.1.29
+  app-20:
+    image: nginx:latest
+    networks:
+      net-uneg-20:
+        ipv4_address: 192.168.1.30
+networks:
+  net-uneg-1:
+    driver: bridge
+  net-uneg-2:
+    driver: bridge
+  net-uneg-3:
+    driver: bridge
+  net-uneg-4:
+    driver: bridge
+  net-uneg-5:
+    driver: bridge
+  net-uneg-6:
+    driver: bridge
+  net-uneg-7:
+    driver: bridge
+  net-uneg-8:
+    driver: bridge
+  net-uneg-9:
+    driver: bridge
+  net-uneg-10:
+    driver: bridge
+  net-uneg-11:
+    driver: bridge
+  net-uneg-12:
+    driver: bridge
+  net-uneg-13:
+    driver: bridge
+  net-uneg-14:
+    driver: bridge
+  net-uneg-15:
+    driver: bridge
+  net-uneg-16:
+    driver: bridge
+  net-uneg-17:
+    driver: bridge
+  net-uneg-18:
+    driver: bridge
+  net-uneg-19:
+    driver: bridge
+  net-uneg-20:
+    driver: bridge

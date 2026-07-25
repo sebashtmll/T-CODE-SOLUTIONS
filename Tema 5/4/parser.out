@@ -1,0 +1,406 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> document
+Rule 1     document -> element_list
+Rule 2     document -> empty
+Rule 3     element_list -> element
+Rule 4     element_list -> element_list element
+Rule 5     element -> key_or_services COLON VALUE NEWLINE
+Rule 6     element -> key_or_services COLON NEWLINE
+Rule 7     element -> key_or_services COLON NEWLINE INDENT block DEDENT
+Rule 8     key_or_services -> KEY
+Rule 9     key_or_services -> SERVICES
+Rule 10    block -> block_item
+Rule 11    block -> block block_item
+Rule 12    block_item -> KEY COLON VALUE NEWLINE
+Rule 13    block_item -> KEY COLON NEWLINE
+Rule 14    block_item -> KEY COLON NEWLINE INDENT block DEDENT
+Rule 15    block_item -> list_items
+Rule 16    list_items -> list_item
+Rule 17    list_items -> list_items list_item
+Rule 18    list_item -> DASH VALUE NEWLINE
+Rule 19    empty -> <empty>
+
+Terminals, with rules where they appear
+
+COLON                : 5 6 7 12 13 14
+DASH                 : 18
+DEDENT               : 7 14
+INDENT               : 7 14
+KEY                  : 8 12 13 14
+NEWLINE              : 5 6 7 12 13 14 18
+SERVICES             : 9
+VALUE                : 5 12 18
+error                : 
+
+Nonterminals, with rules where they appear
+
+block                : 7 11 14
+block_item           : 10 11
+document             : 0
+element              : 3 4
+element_list         : 1 4
+empty                : 2
+key_or_services      : 5 6 7
+list_item            : 16 17
+list_items           : 15 17
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . document
+    (1) document -> . element_list
+    (2) document -> . empty
+    (3) element_list -> . element
+    (4) element_list -> . element_list element
+    (19) empty -> .
+    (5) element -> . key_or_services COLON VALUE NEWLINE
+    (6) element -> . key_or_services COLON NEWLINE
+    (7) element -> . key_or_services COLON NEWLINE INDENT block DEDENT
+    (8) key_or_services -> . KEY
+    (9) key_or_services -> . SERVICES
+
+    $end            reduce using rule 19 (empty -> .)
+    KEY             shift and go to state 6
+    SERVICES        shift and go to state 7
+
+    document                       shift and go to state 1
+    element_list                   shift and go to state 2
+    empty                          shift and go to state 3
+    element                        shift and go to state 4
+    key_or_services                shift and go to state 5
+
+state 1
+
+    (0) S' -> document .
+
+
+
+state 2
+
+    (1) document -> element_list .
+    (4) element_list -> element_list . element
+    (5) element -> . key_or_services COLON VALUE NEWLINE
+    (6) element -> . key_or_services COLON NEWLINE
+    (7) element -> . key_or_services COLON NEWLINE INDENT block DEDENT
+    (8) key_or_services -> . KEY
+    (9) key_or_services -> . SERVICES
+
+    $end            reduce using rule 1 (document -> element_list .)
+    KEY             shift and go to state 6
+    SERVICES        shift and go to state 7
+
+    element                        shift and go to state 8
+    key_or_services                shift and go to state 5
+
+state 3
+
+    (2) document -> empty .
+
+    $end            reduce using rule 2 (document -> empty .)
+
+
+state 4
+
+    (3) element_list -> element .
+
+    KEY             reduce using rule 3 (element_list -> element .)
+    SERVICES        reduce using rule 3 (element_list -> element .)
+    $end            reduce using rule 3 (element_list -> element .)
+
+
+state 5
+
+    (5) element -> key_or_services . COLON VALUE NEWLINE
+    (6) element -> key_or_services . COLON NEWLINE
+    (7) element -> key_or_services . COLON NEWLINE INDENT block DEDENT
+
+    COLON           shift and go to state 9
+
+
+state 6
+
+    (8) key_or_services -> KEY .
+
+    COLON           reduce using rule 8 (key_or_services -> KEY .)
+
+
+state 7
+
+    (9) key_or_services -> SERVICES .
+
+    COLON           reduce using rule 9 (key_or_services -> SERVICES .)
+
+
+state 8
+
+    (4) element_list -> element_list element .
+
+    KEY             reduce using rule 4 (element_list -> element_list element .)
+    SERVICES        reduce using rule 4 (element_list -> element_list element .)
+    $end            reduce using rule 4 (element_list -> element_list element .)
+
+
+state 9
+
+    (5) element -> key_or_services COLON . VALUE NEWLINE
+    (6) element -> key_or_services COLON . NEWLINE
+    (7) element -> key_or_services COLON . NEWLINE INDENT block DEDENT
+
+    VALUE           shift and go to state 10
+    NEWLINE         shift and go to state 11
+
+
+state 10
+
+    (5) element -> key_or_services COLON VALUE . NEWLINE
+
+    NEWLINE         shift and go to state 12
+
+
+state 11
+
+    (6) element -> key_or_services COLON NEWLINE .
+    (7) element -> key_or_services COLON NEWLINE . INDENT block DEDENT
+
+    KEY             reduce using rule 6 (element -> key_or_services COLON NEWLINE .)
+    SERVICES        reduce using rule 6 (element -> key_or_services COLON NEWLINE .)
+    $end            reduce using rule 6 (element -> key_or_services COLON NEWLINE .)
+    INDENT          shift and go to state 13
+
+
+state 12
+
+    (5) element -> key_or_services COLON VALUE NEWLINE .
+
+    KEY             reduce using rule 5 (element -> key_or_services COLON VALUE NEWLINE .)
+    SERVICES        reduce using rule 5 (element -> key_or_services COLON VALUE NEWLINE .)
+    $end            reduce using rule 5 (element -> key_or_services COLON VALUE NEWLINE .)
+
+
+state 13
+
+    (7) element -> key_or_services COLON NEWLINE INDENT . block DEDENT
+    (10) block -> . block_item
+    (11) block -> . block block_item
+    (12) block_item -> . KEY COLON VALUE NEWLINE
+    (13) block_item -> . KEY COLON NEWLINE
+    (14) block_item -> . KEY COLON NEWLINE INDENT block DEDENT
+    (15) block_item -> . list_items
+    (16) list_items -> . list_item
+    (17) list_items -> . list_items list_item
+    (18) list_item -> . DASH VALUE NEWLINE
+
+    KEY             shift and go to state 16
+    DASH            shift and go to state 19
+
+    block                          shift and go to state 14
+    block_item                     shift and go to state 15
+    list_items                     shift and go to state 17
+    list_item                      shift and go to state 18
+
+state 14
+
+    (7) element -> key_or_services COLON NEWLINE INDENT block . DEDENT
+    (11) block -> block . block_item
+    (12) block_item -> . KEY COLON VALUE NEWLINE
+    (13) block_item -> . KEY COLON NEWLINE
+    (14) block_item -> . KEY COLON NEWLINE INDENT block DEDENT
+    (15) block_item -> . list_items
+    (16) list_items -> . list_item
+    (17) list_items -> . list_items list_item
+    (18) list_item -> . DASH VALUE NEWLINE
+
+    DEDENT          shift and go to state 20
+    KEY             shift and go to state 16
+    DASH            shift and go to state 19
+
+    block_item                     shift and go to state 21
+    list_items                     shift and go to state 17
+    list_item                      shift and go to state 18
+
+state 15
+
+    (10) block -> block_item .
+
+    DEDENT          reduce using rule 10 (block -> block_item .)
+    KEY             reduce using rule 10 (block -> block_item .)
+    DASH            reduce using rule 10 (block -> block_item .)
+
+
+state 16
+
+    (12) block_item -> KEY . COLON VALUE NEWLINE
+    (13) block_item -> KEY . COLON NEWLINE
+    (14) block_item -> KEY . COLON NEWLINE INDENT block DEDENT
+
+    COLON           shift and go to state 22
+
+
+state 17
+
+    (15) block_item -> list_items .
+    (17) list_items -> list_items . list_item
+    (18) list_item -> . DASH VALUE NEWLINE
+
+  ! shift/reduce conflict for DASH resolved as shift
+    DEDENT          reduce using rule 15 (block_item -> list_items .)
+    KEY             reduce using rule 15 (block_item -> list_items .)
+    DASH            shift and go to state 19
+
+  ! DASH            [ reduce using rule 15 (block_item -> list_items .) ]
+
+    list_item                      shift and go to state 23
+
+state 18
+
+    (16) list_items -> list_item .
+
+    DASH            reduce using rule 16 (list_items -> list_item .)
+    DEDENT          reduce using rule 16 (list_items -> list_item .)
+    KEY             reduce using rule 16 (list_items -> list_item .)
+
+
+state 19
+
+    (18) list_item -> DASH . VALUE NEWLINE
+
+    VALUE           shift and go to state 24
+
+
+state 20
+
+    (7) element -> key_or_services COLON NEWLINE INDENT block DEDENT .
+
+    KEY             reduce using rule 7 (element -> key_or_services COLON NEWLINE INDENT block DEDENT .)
+    SERVICES        reduce using rule 7 (element -> key_or_services COLON NEWLINE INDENT block DEDENT .)
+    $end            reduce using rule 7 (element -> key_or_services COLON NEWLINE INDENT block DEDENT .)
+
+
+state 21
+
+    (11) block -> block block_item .
+
+    DEDENT          reduce using rule 11 (block -> block block_item .)
+    KEY             reduce using rule 11 (block -> block block_item .)
+    DASH            reduce using rule 11 (block -> block block_item .)
+
+
+state 22
+
+    (12) block_item -> KEY COLON . VALUE NEWLINE
+    (13) block_item -> KEY COLON . NEWLINE
+    (14) block_item -> KEY COLON . NEWLINE INDENT block DEDENT
+
+    VALUE           shift and go to state 25
+    NEWLINE         shift and go to state 26
+
+
+state 23
+
+    (17) list_items -> list_items list_item .
+
+    DASH            reduce using rule 17 (list_items -> list_items list_item .)
+    DEDENT          reduce using rule 17 (list_items -> list_items list_item .)
+    KEY             reduce using rule 17 (list_items -> list_items list_item .)
+
+
+state 24
+
+    (18) list_item -> DASH VALUE . NEWLINE
+
+    NEWLINE         shift and go to state 27
+
+
+state 25
+
+    (12) block_item -> KEY COLON VALUE . NEWLINE
+
+    NEWLINE         shift and go to state 28
+
+
+state 26
+
+    (13) block_item -> KEY COLON NEWLINE .
+    (14) block_item -> KEY COLON NEWLINE . INDENT block DEDENT
+
+    DEDENT          reduce using rule 13 (block_item -> KEY COLON NEWLINE .)
+    KEY             reduce using rule 13 (block_item -> KEY COLON NEWLINE .)
+    DASH            reduce using rule 13 (block_item -> KEY COLON NEWLINE .)
+    INDENT          shift and go to state 29
+
+
+state 27
+
+    (18) list_item -> DASH VALUE NEWLINE .
+
+    DASH            reduce using rule 18 (list_item -> DASH VALUE NEWLINE .)
+    DEDENT          reduce using rule 18 (list_item -> DASH VALUE NEWLINE .)
+    KEY             reduce using rule 18 (list_item -> DASH VALUE NEWLINE .)
+
+
+state 28
+
+    (12) block_item -> KEY COLON VALUE NEWLINE .
+
+    DEDENT          reduce using rule 12 (block_item -> KEY COLON VALUE NEWLINE .)
+    KEY             reduce using rule 12 (block_item -> KEY COLON VALUE NEWLINE .)
+    DASH            reduce using rule 12 (block_item -> KEY COLON VALUE NEWLINE .)
+
+
+state 29
+
+    (14) block_item -> KEY COLON NEWLINE INDENT . block DEDENT
+    (10) block -> . block_item
+    (11) block -> . block block_item
+    (12) block_item -> . KEY COLON VALUE NEWLINE
+    (13) block_item -> . KEY COLON NEWLINE
+    (14) block_item -> . KEY COLON NEWLINE INDENT block DEDENT
+    (15) block_item -> . list_items
+    (16) list_items -> . list_item
+    (17) list_items -> . list_items list_item
+    (18) list_item -> . DASH VALUE NEWLINE
+
+    KEY             shift and go to state 16
+    DASH            shift and go to state 19
+
+    block                          shift and go to state 30
+    block_item                     shift and go to state 15
+    list_items                     shift and go to state 17
+    list_item                      shift and go to state 18
+
+state 30
+
+    (14) block_item -> KEY COLON NEWLINE INDENT block . DEDENT
+    (11) block -> block . block_item
+    (12) block_item -> . KEY COLON VALUE NEWLINE
+    (13) block_item -> . KEY COLON NEWLINE
+    (14) block_item -> . KEY COLON NEWLINE INDENT block DEDENT
+    (15) block_item -> . list_items
+    (16) list_items -> . list_item
+    (17) list_items -> . list_items list_item
+    (18) list_item -> . DASH VALUE NEWLINE
+
+    DEDENT          shift and go to state 31
+    KEY             shift and go to state 16
+    DASH            shift and go to state 19
+
+    block_item                     shift and go to state 21
+    list_items                     shift and go to state 17
+    list_item                      shift and go to state 18
+
+state 31
+
+    (14) block_item -> KEY COLON NEWLINE INDENT block DEDENT .
+
+    DEDENT          reduce using rule 14 (block_item -> KEY COLON NEWLINE INDENT block DEDENT .)
+    KEY             reduce using rule 14 (block_item -> KEY COLON NEWLINE INDENT block DEDENT .)
+    DASH            reduce using rule 14 (block_item -> KEY COLON NEWLINE INDENT block DEDENT .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for DASH in state 17 resolved as shift

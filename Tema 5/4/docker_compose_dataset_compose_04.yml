@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./html:/usr/share/nginx/html
+  api:
+    image: node:16
+    environment:
+      - DB_HOST=db

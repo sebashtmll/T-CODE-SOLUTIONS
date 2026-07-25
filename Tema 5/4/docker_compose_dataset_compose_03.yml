@@ -1,0 +1,5 @@
+services:
+  app:
+    image: my-python-app:latest
+    ports:
+      - "8000:8000"

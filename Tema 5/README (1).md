@@ -44,7 +44,7 @@ El proyecto está estructurado en módulos que cubren tanto los fundamentos teó
 ---
 
 ## 🚀 Enlace de la Defensa
-> 🔗 **Acceso al video de la defensa del proyecto:**
+> 🔗 **Acceso al video de la defensa del proyecto:** https://drive.google.com/file/d/1NbJMcsaxVeL8XgBBYKClnuGRuoU4B5FQ/view?usp=sharing
 ## 🛠️ Requisitos e Instalación
 Para ejecutar los experimentos de rendimiento y los analizadores incluidos en el repositorio, asegúrate de tener instalado:
 * **Python 3.10+** (Librerías requeridas: `matplotlib`, `ply`)
